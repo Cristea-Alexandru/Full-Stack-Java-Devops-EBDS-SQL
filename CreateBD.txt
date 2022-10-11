@@ -33,7 +33,6 @@ CREATE TABLE `notation` (
   `score` float NOT NULL,
   `numstud` int DEFAULT NULL,
   `numtest` int DEFAULT NULL,
-  PRIMARY KEY (`score`),
   KEY `numstud` (`numstud`),
   KEY `numtest` (`numtest`),
   CONSTRAINT `notation_ibfk_1` FOREIGN KEY (`numstud`) REFERENCES `student` (`numstud`) ON DELETE SET NULL ON UPDATE SET NULL,
