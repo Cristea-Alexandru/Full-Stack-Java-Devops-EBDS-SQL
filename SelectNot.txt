@@ -1,0 +1,46 @@
+1-> SELECT count(*) as TOTAL FROM test;
+
+2-> SELECT stu.name, stu.firstname, nt.score FROM student stu 
+	JOIN notation nt ON stu.numstud = nt.numstud;
+
+3-> SELECT stu.name, stu.firstname, ma.wording, nt.score FROM student stu 
+	JOIN notation nt ON stu.numstud = nt.numstud 
+	JOIN test te ON nt.numtest = te.numtest 
+	JOIN matter ma ON te.codemat = ma.codemat;
+
+4-> SELECT stu.name, stu.firstname, ma.wording, nt.score 
+	FROM student stu 
+	JOIN notation nt ON stu.numstud = nt.numstud 
+	JOIN test te ON nt.numtest = te.numtest 
+	JOIN matter ma ON te.codemat = ma.codemat
+	WHERE nt.score >= 10;
+
+4-> SELECT score FROM notation where score >= 10;
+
+5-> SELECT name, firstname, score FROM student, notation WHERE score >= 20;
+
+6-> SELECT stu.name, stu.firstname, avg(nt.score) as AVERAGE FROM student stu 
+	JOIN notation nt ON stu.numstud = nt.numstud GROUP BY stu.name;
+
+7-> SELECT * FROM test WHERE testdate between '2014-01-01' AND '2014-06-30';
+
+8-> SELECT te.numtest, te.testdate, te.place, ma.wording FROM test te 
+	JOIN matter ma ON te.codemat = ma.codemat;
+
+9-> SELECT stu.name, stu.firstname, avg(nt.score) AS Average FROM student stu 
+	JOIN notation nt ON stu.numstud = nt.numstud GROUP BY stu.name ORDER BY Average DESC;
+
+10-> SELECT ma.wording, avg(nt.score) as Average 
+	FROM student stu 
+	JOIN notation nt ON stu.numstud = nt.numstud 
+	JOIN test te ON nt.numtest = te.numtest 
+	JOIN matter ma ON te.codemat = ma.codemat
+	GROUP BY ma.wording;
+
+11-> SELECT te.numtest, avg(nt.score) as Average 
+	FROM student stu 
+	JOIN notation nt ON stu.numstud = nt.numstud 
+	JOIN test te ON nt.numtest = te.numtest 
+	JOIN matter ma ON te.codemat = ma.codemat
+    	GROUP BY te.numtest
+	HAVING count(*) <6;

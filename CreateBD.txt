@@ -1,0 +1,42 @@
+CREATE DATABASE school;
+USE school;
+
+CREATE TABLE `student` (
+  `numstud` int NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `firstname` varchar(20) NOT NULL,
+  `dateofbirth` date NOT NULL,
+  `street` varchar(75) NOT NULL,
+  `postalcod` varchar(8) NOT NULL,
+  `city` varchar(15) NOT NULL,
+  PRIMARY KEY (`numstud`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `matter` (
+  `codemat` varchar(20) NOT NULL,
+  `wording` varchar(25) NOT NULL,
+  `coef` float NOT NULL,
+  PRIMARY KEY (`codemat`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `test` (
+  `numtest` int NOT NULL,
+  `testdate` date NOT NULL,
+  `place` varchar(20) NOT NULL,
+  `codemat` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`numtest`),
+  KEY `codemat` (`codemat`),
+  CONSTRAINT `test_ibfk_1` FOREIGN KEY (`codemat`) REFERENCES `matter` (`codemat`) ON DELETE SET NULL ON UPDATE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `notation` (
+  `score` float NOT NULL,
+  `numstud` int DEFAULT NULL,
+  `numtest` int DEFAULT NULL,
+  PRIMARY KEY (`score`),
+  KEY `numstud` (`numstud`),
+  KEY `numtest` (`numtest`),
+  CONSTRAINT `notation_ibfk_1` FOREIGN KEY (`numstud`) REFERENCES `student` (`numstud`) ON DELETE SET NULL ON UPDATE SET NULL,
+  CONSTRAINT `notation_ibfk_2` FOREIGN KEY (`numtest`) REFERENCES `test` (`numtest`) ON DELETE SET NULL ON UPDATE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+

@@ -1,0 +1,52 @@
+INSERT INTO student(numstud, name, firstname, dateofbirth, street, postalcod, city) VALUES
+(01, 'Dupont','Crew','1993-07-03','Chandelier','23114','Mallorca'), 
+(02, 'Durand','Nemesis','1985-03-05','Greenhouse','25623','Lloret'), 
+(03, 'Martin','Crypton','1997-12-15','Nicasio','56233','Amsterdam'), 
+(04, 'Alexandru','Cristea','1989-01-26','Seventy','28045','Madrid'), 
+(05, 'Rodrigo','Garcia','1991-06-15','Bradul','00312','Rumania'), 
+(06, 'Almudena','Navarro','1999-08-12','Concejal','28033','Madrid'), 
+(07, 'Susana','Melo','1983-10-16','Major','15023','Lyon');
+
+INSERT INTO matter(codemat, wording, coef) VALUES
+('Matter1', 'Spanish', 5), 
+('Matter2', 'English', 3), 
+('Matter3', 'French', 1);
+
+INSERT INTO test(numtest, testdate, place, codemat) VALUES 
+(1, '2022-10-11', 'Rumania', 'Matter1'), 
+(2, '2020-06-13', 'Londres', 'Matter1'), 
+(3, '2014-02-12', 'Madrid', 'Matter3'), 
+(4, '2014-03-15', 'Malaga', 'Matter2'), 
+(5, '2014-05-23', 'Cairo', 'Matter3');
+
+INSERT INTO notation(score, numstud, numtest) VALUES
+(9, 01, 1), 
+(8, 01, 2), 
+(7, 01, 3), 
+(8, 01, 4), 
+(6, 01, 5), 
+(9, 02, 1), 
+(20, 02, 2), 
+(20, 02, 3), 
+(3, 02, 4), 
+(5, 02, 5), 
+(6, 02, 2), 
+(4, 03, 2), 
+(15, 03, 2), 
+(19, 03, 1), 
+(18, 03, 1), 
+(13, 04, 1), 
+(15, 05, 3), 
+(10, 06, 3), 
+(16, 06, 3), 
+(13, 06, 1), 
+(12, 06, 3), 
+(15, 07, 4), 
+(16, 07, 4), 
+(14, 07, 4), 
+(16, 04, 4), 
+(19, 05, 4), 
+(16, 03, 5), 
+(17, 02, 5), 
+(19, 07, 5), 
+(11, 07, 5);
